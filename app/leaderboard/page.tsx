@@ -60,9 +60,9 @@ const LeaderboardPage = () => {
     return (
       <div className='flex flex-col items-center justify-center gap-4 w-[100vw]'>
         <div className='grid grid-cols-3 w-[80vw] text-center'>
-          <div className='text-white text-lg sm:text-xl md:text-2xl lg:text-3xl  font-medium font-mono'>{SerialNo}</div>
-          <div className='text-white text-lg sm:text-xl md:text-2xl lg:text-3xl  font-medium font-mono'>{Name}</div>
-          <div className='text-white text-lg sm:text-xl md:text-2xl lg:text-3xl  font-mono'>{Points}</div>
+          <div className='text-white text-lg sm:text-xl md:text-2xl lg:text-3xl  font-medium font-sans'>{SerialNo}</div>
+          <div className='text-white text-lg sm:text-xl md:text-2xl lg:text-3xl  font-medium font-sans'>{Name}</div>
+          <div className='text-white text-lg sm:text-xl md:text-2xl lg:text-3xl  font-sans'>{Points}</div>
         </div>
         <div className='w-[60vw] h-[0.05rem] bg-white'></div>
       </div>
@@ -70,7 +70,7 @@ const LeaderboardPage = () => {
   };
 
   return (
-    <div className='w-[100vw] min-h-screen bg-stone-800 flex flex-col items-center justify-start'>
+    <div className='w-[100vw] min-h-screen bg-black flex flex-col items-center justify-start'>
       <div className='p-8'>
         <h1 className='text-white text-center text-4xl md:text-6xl font-serif'>LeaderBoard</h1>
         <div className='w-[80vw] h-[0.2px] bg-white mt-4'></div>

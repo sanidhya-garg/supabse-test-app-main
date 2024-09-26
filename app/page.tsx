@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../supabaseClient'; // Ensure you have a supabase client initialized
+import Navbar from '@/components/Navbar';
 
 const tasks = [
   { name: 'Task 1', points: 10 },
@@ -24,7 +25,7 @@ const HomePage = () => {
       const { data: { user }, error } = await supabase.auth.getUser();
       if (error || !user) {
         // Redirect to the /auth page if not authenticated
-        router.push('/auth');
+        router.push('/sign-in');
       }
     };
 
@@ -74,42 +75,45 @@ const HomePage = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-5 border border-gray-300 rounded shadow">
-      <h1 className="text-xl font-bold mb-4">Task Submissions</h1>
-      {error && <p className="text-red-500">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block mb-2">Select Task</label>
-          <select
-            value={taskName}
-            onChange={(e) => setTaskName(e.target.value)}
-            className="border p-2 w-full rounded"
+    <>
+    <Navbar/>
+      <div className="max-w-md mx-auto mt-10 p-5 border border-gray-300 rounded shadow">
+        <h1 className="text-xl font-bold mb-4">Task Submissions</h1>
+        {error && <p className="text-red-500">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block mb-2">Select Task</label>
+            <select
+              value={taskName}
+              onChange={(e) => setTaskName(e.target.value)}
+              className="border p-2 w-full rounded"
+            >
+              {tasks.map(task => (
+                <option key={task.name} value={task.name}>
+                  {task.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="mb-4">
+            <label className="block mb-2">Submission Link</label>
+            <input
+              type="url"
+              value={submissionLink}
+              onChange={(e) => setSubmissionLink(e.target.value)}
+              required
+              className="border p-2 w-full rounded"
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
           >
-            {tasks.map(task => (
-              <option key={task.name} value={task.name}>
-                {task.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-4">
-          <label className="block mb-2">Submission Link</label>
-          <input
-            type="url"
-            value={submissionLink}
-            onChange={(e) => setSubmissionLink(e.target.value)}
-            required
-            className="border p-2 w-full rounded"
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+            Submit
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

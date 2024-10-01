@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
-    router.push('/sign-in');
+    router.push('/');
   };
 
   return (
@@ -41,6 +41,12 @@ const Navbar = () => {
       <div className="flex items-center justify-center mr-8 gap-6">
         <div className="text-sm sm:flex hidden font-medium text-gray-200 tracking-wide">
           {user ? `Hey, ${user.email}` : 'Loading...'}
+        </div>
+        <div
+          className="h-8 w-20 text-center flex items-center justify-center bg-red-500 hover:bg-red-600 text-sm font-semibold text-white rounded-lg cursor-pointer transition-all duration-200"
+          onClick={()=>{router.push("/leaderboard")}}
+        >
+          LeaderBoard
         </div>
         <div
           className="h-8 w-20 text-center flex items-center justify-center bg-red-500 hover:bg-red-600 text-sm font-semibold text-white rounded-lg cursor-pointer transition-all duration-200"

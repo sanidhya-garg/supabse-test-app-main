@@ -21,20 +21,22 @@ export default function Auth() {
     if (error) {
       console.error("Sign-up Error:", error.message);
     } else {
-      router.push("/"); // Redirect to home after successful sign-up
+      router.push("/task"); // Redirect to home after successful sign-up
     }
     setLoading(false);
   };
-
   const handleGoogleSignIn = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/task`, // Redirect to /task after sign-in
+      },
     });
+  
     if (error) {
       console.error("Error with Google Sign In:", error.message);
     }
   };
-
   return (
     <div className="w-full h-screen bg-gray-400 flex items-center justify-center">
       <div className="w-[80vw] sm:w-[60vw] md:w-[50vw] lg:w-[40vw] xl:w-[30vw] h-[75vh] flex flex-col items-center justify-start bg-white shadow-2xl shadow-black border-2 border-gray-600 rounded-xl">

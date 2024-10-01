@@ -11,7 +11,7 @@ const Test = () => {
       style={{ height: "110px", whiteSpace: "nowrap", marginRight: "10px" }}
     >
 
-      <div className='text-white text-[40px] md:text-[50px] font-[400] lg:font-[600] lg:text-[80px]'
+      <div className='text-ourGreen text-[40px] md:text-[50px] font-[400] lg:font-[600] lg:text-[80px]'
         style={{wordWrap: "normal" }}
       >Things in Place 
       </div >
@@ -32,7 +32,7 @@ const Test2 = () => {
       style={{ height: "110px", whiteSpace: "nowrap", marginRight: "10px", position: "relative", left: "305px" }}
     >
 
-      <div className='text-white text-[40px] md:text-[50px] font-[400] lg:font-[600] lg:text-[80px]'
+      <div className='text-ourGreen text-[40px] md:text-[50px] font-[400] lg:font-[600] lg:text-[80px]'
         style={{ wordWrap: "normal" }}
       >Things in Place
       </div >

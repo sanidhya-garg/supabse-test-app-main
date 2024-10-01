@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color:#140d39;
-}
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
+
 ::-webkit-scrollbar{
     display: none;
 }
+
+

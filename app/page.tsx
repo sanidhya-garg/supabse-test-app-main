@@ -1,24 +1,17 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 // import img1 from "../../public/hero.svg" 
 import Loop from "@/components/loop.js"
 import { IoIosArrowDroprightCircle, IoIosArrowDropdownCircle } from "react-icons/io";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaW, FaXTwitter } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
-import { FaWhatsapp } from "react-icons/fa";
-import { Router } from 'next/router';
-
 
 
 interface SlidesProps {
   studentName_College: string;
   desc: string;
-  source:string;
+  source: string;
 }
 interface BenifitProps {
   title: string;
@@ -30,7 +23,7 @@ interface BenifitProps {
 
 const Home = () => {
 
-  const des = "\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus qui, vitae eum repudiandae ex nihil ad accusamus suscipit natus ut officiis! Iusto eius velit quam quia architecto officia eligendi iure quae mollitia facere maxime placeat soluta, voluptatem laboriosam reprehenderit.\""
+  // const des = "\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus qui, vitae eum repudiandae ex nihil ad accusamus suscipit natus ut officiis! Iusto eius velit quam quia architecto officia eligendi iure quae mollitia facere maxime placeat soluta, voluptatem laboriosam reprehenderit.\""
   const des1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus qui, vitae eum repudiandae ex nihil ad accusamus "
 
   const faqQuestion = [
@@ -63,8 +56,8 @@ const Home = () => {
   ]
 
   const CA = [
-    ["Abhijit Saha,IIT-Mandi","/img/testimonials/abhijit-saha.webp"],
-    ["Sarfaraz,NIT-Delhi","/img/testimonials/sarfaraz.webp"],
+    ["Abhijit Saha,IIT-Mandi", "/img/testimonials/abhijit-saha.webp"],
+    ["Sarfaraz,NIT-Delhi", "/img/testimonials/sarfaraz.webp"],
   ]
 
 
@@ -106,12 +99,21 @@ const Home = () => {
           className='h-[70px] w-[100px]'
         />
 
-        <div className='flex flex-row justify-between p-2 text-white font-medium md:w-1/3 gap-2'> {/* Corrected 'text-whitte' to 'text-white' */}
+        <div className='flex flex-row items-center justify-between p-2 text-white font-medium md:w-1/3 gap-2'> {/* Corrected 'text-whitte' to 'text-white' */}
           <a className='cursor-pointer hover:underline hidden md:block' href='#home'>Home</a>
           <a className='cursor-pointer hover:underline hidden md:block' href='#about'>About</a>
           <a className='cursor-pointer hover:underline hidden md:block' href='#benifit'>Benefits</a> {/* Corrected 'Benifits' to 'Benefits' */}
-          <a className='cursor-pointer hover:underline hidden md:block' href='#faq'>FAQ's</a>
-          <a className='cursor-pointer hover:underline ' href='/sign-in'>SignIn</a>
+          <a className='cursor-pointer hover:underline hidden md:block' href='#faq'>FAQ&apos;s</a>
+          <div
+            className="h-8 w-28 text-center flex items-center justify-center bg-red-500 hover:bg-red-600 text-sm font-semibold text-white rounded-lg cursor-pointer transition-all duration-200"
+          >
+            <a href="/leaderboard">LeaderBoard</a>
+          </div>
+          <div
+            className="h-8 w-20 text-center flex items-center justify-center bg-red-500 hover:bg-red-600 text-sm font-semibold text-white rounded-lg cursor-pointer transition-all duration-200"
+          >
+            <a href="/sign-in">Signin</a>
+          </div>
         </div>
       </div>
       <div className='h-fit overflow-y-hidden'>
@@ -125,12 +127,12 @@ const Home = () => {
             <p className='text-white font-semibold'>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni reiciendis ipsa consectetur temporibus maiores blanditiis quod atque, perspiciatis facere dolorum. Quasi explicabo, necessitatibus maiores ea deleniti assumenda aspernatur blanditiis ut autem ex earum alias voluptate.
             </p>
-            
+
             <a href='/sign-in'>
-            <button className='px-3 py-2 text-center rounded-md bg-hoverGreen text-[14px] font-semibold'>
-             Register Now
-            </button>
-             </a>
+              <button className='px-3 py-2 text-center rounded-md bg-hoverGreen text-[14px] font-semibold'>
+                Register Now
+              </button>
+            </a>
           </div>
           <div className='h-full w-1/3 justify-center items-center hidden lg:flex'>
             <img src="/hero.png" alt="img" className="h-[400px] w-[350px] ml-11 " />
@@ -237,10 +239,10 @@ const Home = () => {
           </div>
 
           <div className="py-8 mx-12 my-5 px-9 lg:px-20 rounded-lg h-auto lg:h-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((e,index) => (
+            {testimonials.map((e, index) => (
               <Slides desc={e} key={index}
-              source={CA[index] && CA[index][1]}
-              studentName_College={CA[index] ? CA[index][0] : "Keshav Raj,IIT-Delhi" } />
+                source={CA[index] && CA[index][1]}
+                studentName_College={CA[index] ? CA[index][0] : "Keshav Raj,IIT-Delhi"} />
             ))}
           </div>
         </section>
@@ -257,7 +259,7 @@ const Home = () => {
 
             <div className='px-10 py-5 flex flex-col items-center gap-2'>
               {faqQuestion.map((e, index) => (
-                <FAQ  key={index} title={e} desc={faqAnswer[index]} />
+                <FAQ key={index} title={e} desc={faqAnswer[index]} />
               ))}
             </div>
           </div>
@@ -269,7 +271,7 @@ const Home = () => {
                 className='h-[70px] w-[100px]'
               />
               <span className='font-bold text-xl'>Entrepreneurship & Development Cell</span> {/* Corrected 'Enterprenurship' */}
-              <span className='font-normal text-md italic'>"We Incubate, We Ideate, We Innovate"</span>
+              <span className='font-normal text-md italic'>&quot;We Incubate, We Ideate, We Innovate&quot;</span>
             </div>
 
             <div className='flex flex-col py-7 lg:border-l-2 lg:border-white px-4 lg:w-1/3'>
@@ -308,13 +310,13 @@ export default Home;
 
 
 
-const Slides: React.FC<SlidesProps> = ({ studentName_College, desc,source }: SlidesProps) => (
+const Slides: React.FC<SlidesProps> = ({ studentName_College, desc, source }: SlidesProps) => (
   <div className='my-5 flex flex-col items-center p-4 bg-gray  max-w-[450px] rounded-xl 
   min-h-80'>
 
     <img src={
       source ? source : "/img/testimonials/default.jpg"
-    } alt="" className=' h-20' style={{borderRadius:"50%"}} color='white' />
+    } alt="" className=' h-20' style={{ borderRadius: "50%" }} color='white' />
     <span className='mt-4 text-white font-semibold text-md text-center italic'>
       {studentName_College}</span>
     <p className='text-center text-white font-syne font-normal mt-4'>{desc}</p>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import eDCLogo from '@/app/public/eDC.jpeg';
+import eDCLogo from '@/app/public/eDCLogo.png';
 import Image from 'next/image';
 import { supabase } from '@/supabaseClient';
 import { useRouter } from 'next/navigation';
@@ -42,12 +42,12 @@ const Navbar = () => {
         <div className="text-sm sm:flex hidden font-medium text-gray-200 tracking-wide">
           {user ? `Hey, ${user.email}` : 'Loading...'}
         </div>
-        <div
+        {/* <div
           className="h-8 w-20 text-center flex items-center justify-center bg-red-500 hover:bg-red-600 text-sm font-semibold text-white rounded-lg cursor-pointer transition-all duration-200"
           onClick={()=>{router.push("/leaderboard")}}
         >
           LeaderBoard
-        </div>
+        </div> */}
         <div
           className="h-8 w-20 text-center flex items-center justify-center bg-red-500 hover:bg-red-600 text-sm font-semibold text-white rounded-lg cursor-pointer transition-all duration-200"
           onClick={handleSignOut}
